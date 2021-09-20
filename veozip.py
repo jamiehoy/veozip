@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 
-import os
-import sys
-import datetime
-
 """
 Zips and unzips using built-in zip utility on a mac
 """
 
+import os
+import sys
+import datetime
+
 def zip_file(file):
+    """
+    Compresses file/folder using built-in zip
+    """
+
     #Get user
-    USER = os.environ["USER"]
+    current_user = os.environ["USER"]
 
     #For timestamp
     now = datetime.datetime.now()
@@ -18,14 +22,19 @@ def zip_file(file):
 
     #Filename taken in as a argument
     file = sys.argv[1]
-    default_location = "/Users/%s/Desktop/"%USER
+    default_location = "/Users/%s/Desktop/"%current_user
 
     #Command String
-    zip = "zip -r %s%s-%s.zip %s -x '*.DS_Store' -x '__MACOSX'"%(default_location,file,timestamp,file)
-    os.system(zip)
+    compress_file = ("zip -r %s%s-%s.zip %s -x '"
+    "*.DS_Store' -x '__MACOSX'"%(default_location,file,timestamp,file))
+    os.system(compress_file)
     print("%s-%s.zip saved to: %s"%(file,timestamp,default_location))
 
 def menu(file):
+    """
+    Display a simple menu
+    """
+
     choice = int(input("1: zip file/folder\n0: Quit\n"))
     if choice == 1:
         zip_file(file)
@@ -38,8 +47,8 @@ def menu(file):
 
 if __name__ == "__main__":
     try:
-        file = sys.argv[1]
-        menu(file)
+        arg = sys.argv[1]
+        menu(arg)
     except IndexError:
         print("Requires file/folder name.")
         sys.exit()
