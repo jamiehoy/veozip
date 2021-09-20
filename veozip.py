@@ -5,7 +5,7 @@ import sys
 import datetime
 
 """
-zips and unzips using built-in zip utility on a mac
+Zips and unzips using built-in zip utility on a mac
 """
 
 def zip_file(file):
