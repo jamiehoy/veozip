@@ -9,6 +9,7 @@ import sys
 import datetime
 
 def zip_file(file):
+
     """
     Compresses file/folder using built-in zip
     """
@@ -16,7 +17,7 @@ def zip_file(file):
     #Get user
     current_user = os.environ["USER"]
 
-    #For timestamp
+    #Timestamp
     now = datetime.datetime.now()
     timestamp = "%s-%s-%s_%s%s%s"%(now.month,now.day,now.year,now.hour,now.minute,now.second)
 
@@ -31,6 +32,7 @@ def zip_file(file):
     print("%s-%s.zip saved to: %s"%(file,timestamp,default_location))
 
 def menu(file):
+
     """
     Display a simple menu
     """
@@ -46,6 +48,8 @@ def menu(file):
         sys.exit()
 
 if __name__ == "__main__":
+
+    #Ensure an argument is passes (file/folder name)
     try:
         arg = sys.argv[1]
         menu(arg)
