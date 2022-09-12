@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/opt/homebrew/bin/python3
 
 """
 Zips and unzips using built-in zip utility on a mac
