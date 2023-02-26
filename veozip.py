@@ -19,17 +19,26 @@ def zip_file(file):
 
     #Timestamp
     now = datetime.datetime.now()
-    timestamp = "%s-%s-%s_%s%s%s"%(now.month,now.day,now.year,now.hour,now.minute,now.second)
+    #timestamp = "%s-%s-%s_%s%s%s"%(now.month,now.day,now.year,now.hour,now.minute,now.second)
+    timestamp = f"{now.month}.{now.day}.{now.year}.{now.hour}.{now.minute}.{now.second}"
 
     #Filename taken in as a argument
     file = sys.argv[1]
-    default_location = "/Users/%s/Desktop/"%current_user
+    #default_location = "/Users/%s/Desktop/"%current_user
+    default_location = f"/Users/{current_user}/Desktop/"
 
     #Command String
-    compress_file = ("zip -r %s%s-%s.zip %s -x '"
-    "*.DS_Store' -x '__MACOSX'"%(default_location,file,timestamp,file))
+    #compress_file = ("zip -r %s%s-%s.zip %s -x '"
+    #"*.DS_Store' -x '__MACOSX'"%(default_location,file,timestamp,file))
+    #compress_file = f"zip -r {default_location}{file}-{timestamp}.zip {file} -x '*.DS_Store' -x '__MACOSX'"
+    compress_file = (
+    f"zip -r {default_location}{file}-{timestamp}.zip {file}"
+    f" -x '*.DS_Store'"
+    f" -x '__MACOSX'"
+)
     os.system(compress_file)
-    print("%s-%s.zip saved to: %s"%(file,timestamp,default_location))
+    #print("%s-%s.zip saved to: %s"%(file,timestamp,default_location))
+    print(f"{file}-{timestamp}.zip saved to: {default_location}")
 
 def menu(file):
 
