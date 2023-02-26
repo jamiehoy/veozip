@@ -30,7 +30,6 @@ def zip_file(file):
     #Command String
     #compress_file = ("zip -r %s%s-%s.zip %s -x '"
     #"*.DS_Store' -x '__MACOSX'"%(default_location,file,timestamp,file))
-    #compress_file = f"zip -r {default_location}{file}-{timestamp}.zip {file} -x '*.DS_Store' -x '__MACOSX'"
     compress_file = (
     f"zip -r {default_location}{file}-{timestamp}.zip {file}"
     f" -x '*.DS_Store'"
