@@ -57,7 +57,7 @@ def menu(file):
 
 if __name__ == "__main__":
 
-    #Ensure an argument is passes (file/folder name)
+    #Ensure an argument is passed (file/folder name)
     try:
         arg = sys.argv[1]
         menu(arg)
