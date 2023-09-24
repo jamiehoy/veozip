@@ -20,7 +20,7 @@ def zip_file(file):
     #Timestamp
     now = datetime.datetime.now()
     #timestamp = "%s-%s-%s_%s%s%s"%(now.month,now.day,now.year,now.hour,now.minute,now.second)
-    timestamp = f"{now.month}.{now.day}.{now.year}.{now.hour}.{now.minute}.{now.second}"
+    timestamp = f"{now.month}-{now.day}-{now.year}_{now.hour}.{now.minute}.{now.second}"
 
     #Filename taken in as a argument
     file = sys.argv[1]
